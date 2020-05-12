@@ -17,6 +17,4 @@ defmodule GetIpIntel do
   end
 
   defp impl, do: Application.fetch_env!(:get_ip_intel, :impl)
-
-  def reset_cache, do: Cachex.clear(:get_ip_intel_lookup_cache)
 end

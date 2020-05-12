@@ -5,7 +5,7 @@ import Config
 config :get_ip_intel,
   impl: GetIpIntel.DefaultImpl,
   cache_ttl_ms: 3_600_000 * 12,
-  contact: "test",
-  domain: "test"
+  contact: System.get_env("GET_IP_INTEL_CONTACT"),
+  domain: System.get_env("GET_IP_INTEL_DOMAIN")
 
 config :http_client, http_client_impl: HTTPoison

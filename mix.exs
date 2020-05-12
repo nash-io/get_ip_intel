@@ -4,7 +4,7 @@ defmodule GetIpIntel.MixProject do
   def project do
     [
       app: :get_ip_intel,
-      version: "0.1.0",
+      version: "0.1.1",
       elixir: "~> 1.9",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -23,8 +23,7 @@ defmodule GetIpIntel.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger],
-      mod: {GetIpIntel.Application, []}
+      extra_applications: [:logger]
     ]
   end
 
@@ -32,7 +31,6 @@ defmodule GetIpIntel.MixProject do
   defp deps do
     [
       {:http_client, "~> 0.2.0"},
-      {:cachex, "~> 3.2"},
       {:mox, "~> 0.5", only: :test},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
       {:excoveralls, "~> 0.12"},
