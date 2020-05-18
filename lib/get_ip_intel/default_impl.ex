@@ -2,7 +2,6 @@ defmodule GetIpIntel.DefaultImpl do
   alias GetIpIntel.Parser
 
   @moduledoc """
-    Http client for get_ip_intel with cache
     ```
       config :get_ip_intel, contact: "email@email.com,
                             domain: "aphetcq98"

@@ -4,7 +4,6 @@ import Config
 
 config :get_ip_intel,
   impl: GetIpIntel.DefaultImpl,
-  cache_ttl_ms: 3_600_000 * 12,
   contact: System.get_env("GET_IP_INTEL_CONTACT"),
   domain: System.get_env("GET_IP_INTEL_DOMAIN")
 
