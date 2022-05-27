@@ -11,9 +11,11 @@ defmodule GetIpIntel do
     defstruct score: nil
   end
 
-  @callback resolve(String.t()) :: {:ok, GetIpIntel.Result.t()} | {:error | atom}
-  def resolve(ip_address) do
-    impl().resolve(ip_address)
+  @type options :: [flags: String.t()] | Keyword.t()
+
+  @callback resolve(String.t(), options()) :: {:ok, GetIpIntel.Result.t()} | {:error | atom}
+  def resolve(ip_address, options \\ []) do
+    impl().resolve(ip_address, options)
   end
 
   defp impl, do: Application.fetch_env!(:get_ip_intel, :impl)

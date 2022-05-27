@@ -1,23 +1,27 @@
 defmodule GetIpIntel.DefaultImpl do
-  alias GetIpIntel.Parser
-
   @moduledoc """
     ```
       config :get_ip_intel, contact: "email@email.com,
                             domain: "aphetcq98"
     ```
   """
+
+  alias GetIpIntel.Parser
+
   require Logger
 
-  @spec resolve(String.t()) :: {:ok, map} | {:error | atom}
-  def resolve(ip_address) do
+  @default_flags "m"
+
+  @spec resolve(String.t(), GetIpIntel.options()) :: {:ok, map} | {:error | atom}
+  def resolve(ip_address, options) do
     ip_address
-    |> call()
+    |> call(options)
     |> Parser.parse()
   end
 
-  def call(ip_address) do
-    query = URI.encode_query(%{ip: ip_address, contact: contact(), flags: "m"})
+  def call(ip_address, options) do
+    flags = Keyword.get(options, :flags, @default_flags)
+    query = URI.encode_query(%{ip: ip_address, contact: contact(), flags: flags})
     url = "http://#{domain()}.getipintel.net/check.php?#{query}"
 
     case HttpClient.get(url) do
