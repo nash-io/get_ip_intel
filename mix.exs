@@ -37,8 +37,7 @@ defmodule GetIpIntel.MixProject do
       {:ex_unit_sonarqube, "~> 0.1.2"},
       {:credo, "~> 1.0", runtime: false},
       {:git_hooks, "~> 0.3", runtime: false},
-      {:dialyxir, "~> 1.0", runtime: false},
-      {:sobelow, "~> 0.9", runtime: false}
+      {:dialyxir, "~> 1.0", runtime: false}
     ]
   end
 
